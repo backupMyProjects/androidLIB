@@ -1,0 +1,11 @@
+<resources>
+
+    <string name="app_name">LeoAndroidUtil</string>
+    
+    <string name="three_g">使用3G/3.5G網路</string>
+    <string name="wifi">使用wifi網路</string>
+    <string name="nonetwork">沒有連上網路</string>
+    <string name="timeout_exception">連接逾時</string>
+    <string name="exception">資料取得錯誤</string>
+
+</resources>
