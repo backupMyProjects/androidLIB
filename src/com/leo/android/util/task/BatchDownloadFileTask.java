@@ -1,19 +1,16 @@
 package com.leo.android.util.task;
 
-import java.util.*;
+import static LeoLib.tools.Toolets.downloadFile;
+import static com.leo.android.util.Constants.DEBUG;
 
-import org.apache.http.NameValuePair;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 
-import android.app.ProgressDialog;
 import android.content.Context;
-import android.media.MediaPlayer;
 import android.os.AsyncTask;
-import android.os.Bundle;
-import android.util.Log;
 
-import com.leo.android.util.*;
-import static com.leo.android.util.Constants.*;
-import static LeoLib.tools.Toolets.*;
+import com.leo.android.util.CommonFunction;
 
 
 public class BatchDownloadFileTask extends AsyncTask< Object, Void, Boolean > {
@@ -26,7 +23,13 @@ public class BatchDownloadFileTask extends AsyncTask< Object, Void, Boolean > {
 	CommonFunction cf;
 	protected Context activity;
 
-	public BatchDownloadFileTask(Context activity, CommonFunction cf, ArrayList<HashMap<String, String>> resultList, String hmKey, String fileURL_prefix, String fileLocal_prefix){
+	public BatchDownloadFileTask(
+			Context activity, 
+			CommonFunction cf, 
+			ArrayList<HashMap<String, String>> resultList, 
+			String hmKey, 
+			String fileURL_prefix, 
+			String fileLocal_prefix ){
 		this.activity = activity;
 		this.cf = cf;
 		this.cf.logLv = DEBUG;
@@ -36,6 +39,7 @@ public class BatchDownloadFileTask extends AsyncTask< Object, Void, Boolean > {
 		this.fileLocal_prefix = fileLocal_prefix;
 	}
 
+	// inputs is useless
 	@Override
 	protected Boolean doInBackground(Object... inputs) {
 		Boolean response = false;
@@ -46,7 +50,6 @@ public class BatchDownloadFileTask extends AsyncTask< Object, Void, Boolean > {
 				String fileNameString = ita.next().get(hmKey);
 				//System.out.println(fileNameString);
 				//response = Toolets.download2File(, fileLocal);
-				
 				
 				response = downloadFile(fileURL_prefix + fileNameString, fileLocal_prefix + fileNameString);
 			}

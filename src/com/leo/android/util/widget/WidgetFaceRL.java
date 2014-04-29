@@ -24,7 +24,7 @@ import android.widget.RelativeLayout;
  *
  */
 public abstract class WidgetFaceRL extends RelativeLayout {
-	protected String TAG = WidgetFaceRL.class.getName();
+	protected String TAG;
 	public String getTAG(){return TAG;}
 
 	protected RelativeLayout layout;
@@ -61,6 +61,7 @@ public abstract class WidgetFaceRL extends RelativeLayout {
 	}
 	
 	private void init(Context context, int relLayout, int inLayoutID){
+		this.TAG = this.getClass().getName();
 		this.context = context;
 		this.activity = (Activity)context;
 		this.application = activity.getApplication();

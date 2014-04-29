@@ -1,20 +1,13 @@
 package com.leo.android.util.task;
 
+import static LeoLib.tools.Toolets.downloadFile2;
+
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.ProtocolException;
-import java.net.URL;
 
 import android.content.Context;
 import android.os.AsyncTask;
 
 import com.leo.android.util.CommonFunction;
-import com.leo.android.util.Toolets;
 
 public class HTTPGetFileTask extends AsyncTask<Object, Void, String> {
 
@@ -22,21 +15,30 @@ public class HTTPGetFileTask extends AsyncTask<Object, Void, String> {
 	protected boolean resultCheck = false;
 	CommonFunction cf;
 	protected Context activity;
+	protected boolean overrideFlag = false;
 
+	public HTTPGetFileTask(String inFilePath, String outFilePath, boolean overrideFlag) {
+		this.inFilePath = inFilePath;
+		this.outFilePath = outFilePath;
+		this.overrideFlag = overrideFlag;
+	}
+	
 	public HTTPGetFileTask(String inFilePath, String outFilePath) {
 		this.inFilePath = inFilePath;
 		this.outFilePath = outFilePath;
 	}
 
+	// inputs is useless
 	@Override
 	protected String doInBackground(Object... inputs) {
 		String response = "";
 
 		// response = HttpClientConnector.getData(runingPath);
-		response = "Download Work : " + LeoLib.tools.Toolets.downloadFile(inFilePath, outFilePath);
+		if ( !overrideFlag && new File(outFilePath).isFile() ){return "has file";}
+		response = "Download Work : " + downloadFile2(inFilePath, outFilePath);
 
 		return response;
 	}
-
+	
 	
 }

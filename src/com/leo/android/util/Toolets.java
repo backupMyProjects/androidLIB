@@ -1,43 +1,11 @@
 package com.leo.android.util;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.ProtocolException;
 import java.net.URL;
-import java.net.URLDecoder;
-import java.net.URLEncoder;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.text.SimpleDateFormat;
+import java.util.UUID;
 
-//import org.codehaus.jackson.map.ObjectMapper;
-//import org.codehaus.jackson.type.TypeReference;
-
-
-
-
-
-
-
-
-import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -67,55 +35,6 @@ public class Toolets {
 	        return null;
 	    }
 	}
-	
-	/*
-	public static boolean downloadFile(String inFileURL, String outFilePath) {
-		try {
-
-			//boolean eof = false;
-
-			HttpURLConnection connect = (HttpURLConnection) (new URL(inFileURL))
-					.openConnection();
-			connect.setRequestMethod("GET");
-			connect.setDoOutput(true);
-			connect.connect();
-
-			// String PATH_op = Environment.getExternalStorageDirectory() +
-			// "/download/" + targetFileName;
-			
-			LeoLib.tools.Toolets.createParentFolder(outFilePath);
-			FileOutputStream file = new FileOutputStream(new File(outFilePath));
-
-			InputStream is = connect.getInputStream();
-			byte[] buffer = new byte[1024];
-			int len1 = 0;
-			while ((len1 = is.read(buffer)) > 0) {
-				file.write(buffer, 0, len1);
-			}
-
-			file.close();
-			return true;
-
-		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
-			System.out.println(e);
-			//e.printStackTrace();
-		} catch (ProtocolException e) {
-			// TODO Auto-generated catch block
-			System.out.println(e);
-			//e.printStackTrace();
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			System.out.println(e);
-			//e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			System.out.println(e);
-			//e.printStackTrace();
-		}
-		return false;
-	}
-	*/
 	
 	public static boolean hasNetwork(Context context, boolean toastIt){
 		ConnectivityManager conMan = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
