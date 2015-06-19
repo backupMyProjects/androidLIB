@@ -28,6 +28,7 @@ public class MenuFaceLL extends LinearLayout {
 		menu = (LinearLayout) findViewById(inLayoutID);
 	}
 
+	// TODO : Refactor. : Leo Chen
 	public void showMenu() {
 		menu.setVisibility(View.VISIBLE);
 		//menu.startAnimation(AnimationUtils.loadAnimation(getContext(), R.menu.rbm_in_from_left));
@@ -38,6 +39,42 @@ public class MenuFaceLL extends LinearLayout {
 	}
 
 	public void hideMenu() {
+		menu.setVisibility(View.GONE);
+		//menu.startAnimation(AnimationUtils.loadAnimation(getContext(), R.menu.rbm_out_to_left));
+		Animation anim = AnimationUtils.loadAnimation(getContext(), R.anim.menu_out_to_left);
+		anim.setDuration(menuDuration);
+		menu.startAnimation(anim);
+		menuShowing = false;
+	}
+	
+	public void showMenuRight() {
+		menu.setVisibility(View.VISIBLE);
+		//menu.startAnimation(AnimationUtils.loadAnimation(getContext(), R.menu.rbm_in_from_left));
+		Animation anim = AnimationUtils.loadAnimation(getContext(), R.anim.menu_in_from_right);
+		anim.setDuration(menuDuration);
+		menu.startAnimation(anim);
+		menuShowing = true;
+	}
+
+	public void hideMenuRight() {
+		menu.setVisibility(View.GONE);
+		//menu.startAnimation(AnimationUtils.loadAnimation(getContext(), R.menu.rbm_out_to_left));
+		Animation anim = AnimationUtils.loadAnimation(getContext(), R.anim.menu_out_to_right);
+		anim.setDuration(menuDuration);
+		menu.startAnimation(anim);
+		menuShowing = false;
+	}
+	
+	public void showMenuLeft() {
+		menu.setVisibility(View.VISIBLE);
+		//menu.startAnimation(AnimationUtils.loadAnimation(getContext(), R.menu.rbm_in_from_left));
+		Animation anim = AnimationUtils.loadAnimation(getContext(), R.anim.menu_in_from_left);
+		anim.setDuration(menuDuration);
+		menu.startAnimation(anim);
+		menuShowing = true;
+	}
+
+	public void hideMenuLeft() {
 		menu.setVisibility(View.GONE);
 		//menu.startAnimation(AnimationUtils.loadAnimation(getContext(), R.menu.rbm_out_to_left));
 		Animation anim = AnimationUtils.loadAnimation(getContext(), R.anim.menu_out_to_left);

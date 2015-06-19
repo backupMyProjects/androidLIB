@@ -4,6 +4,7 @@ import java.util.*;
 
 import org.apache.http.NameValuePair;
 
+import LeoLib.tools.HttpConnector;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
@@ -11,6 +12,7 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.leo.android.util.*;
+
 import static com.leo.android.util.Constants.*;
 
 
@@ -27,7 +29,7 @@ public class HTTPGetTask extends AsyncTask< Object, Void, String > {
 	protected String doInBackground(Object... inputs) {
 		String response = "";
 
-		response = HttpClientConnector.getData(runingPath);
+		response = HttpConnector.getData(runingPath);
 
 		return response;
 	}
