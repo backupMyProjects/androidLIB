@@ -1,23 +1,19 @@
 package com.leo.android.util.widget;
 
-import static com.leo.android.util.Constants.*;
-
-import com.leo.android.util.CommonFunction;
-import com.leo.android.util.R;
-
 import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.view.animation.AccelerateInterpolator;
 import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
 import android.view.animation.AnimationUtils;
-import android.view.animation.DecelerateInterpolator;
 import android.widget.RelativeLayout;
+
+import com.leo.android.util.CommonFunction;
+import com.leo.android.util.R;
 /** TODO
  * 
  * @author leo
@@ -59,6 +55,12 @@ public abstract class WidgetFaceRL extends RelativeLayout {
 		init(context, relLayout, inLayoutID);
 		//layout = (RelativeLayout) findViewById(R.id.layout);
 	}
+
+    public WidgetFaceRL(Context context, int relLayout, int inLayoutID) {
+        super(context);
+        init(context, relLayout, inLayoutID);
+        //layout = (RelativeLayout) findViewById(R.id.layout);
+    }
 	
 	private void init(Context context, int relLayout, int inLayoutID){
 		this.TAG = this.getClass().getName();
