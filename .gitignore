@@ -1,0 +1,11 @@
+/*
+!/.gitignore
+!gradle
+!gradlew
+!gradlew.bat
+#!gradle.properties
+#!build.gradle
+!src
+!res
+!libs
+!AndroidManifest.xml
