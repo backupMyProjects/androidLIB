@@ -9,6 +9,8 @@ public class Constants {
 	public static final int ERROR = 0;
 	public static final int NONE = -1;
 	
+	public static final String NETWORK_ERROR = "netWorkError";
+	
 	public static enum Motions {
 	    None, Left, Right, Up, Down
 	} 
