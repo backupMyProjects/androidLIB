@@ -3,20 +3,16 @@ apply plugin: 'com.android.library'
 buildscript {
 
     repositories {
-        google()
-        jcenter()
+        maven{ url 'http://oversea.i234.me:8081/repository/maven-public/' }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.1.2'
-
-
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
     }
 }
 
 android {
     compileSdkVersion 27
+    buildToolsVersion '27.0.3'
 
     lintOptions {
         abortOnError false
@@ -37,6 +33,14 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    packagingOptions {
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/notice'
+        exclude 'META-INF/notice.txt'
+        exclude 'META-INF/license'
+        exclude 'META-INF/license.txt'
+    }
 
 }
 
@@ -46,5 +50,5 @@ dependencies {
     implementation 'com.android.support:appcompat-v7:27.1.1'
 }
 repositories {
-    google()
+    maven{ url 'http://oversea.i234.me:8081/repository/maven-public/' }
 }
